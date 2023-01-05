@@ -1,0 +1,41 @@
+{% extends "index_layout.html.j2" %}
+{% block content %}
+
+<!-- This was one of my files for my website, I removed most of the code as this is just for reference -->
+<!-- Some of this will have to be changed for you, such as your domain name -->
+
+
+
+                <!-- BEGIN VIDEO -->
+                <div class="video-wrapper">
+                  <div class="vid-wrap">
+                    <!-- although has no sound, needs to be muted or chrome won't play -->
+                    <!-- playsinline is required for Safari and iPhone -->
+                    <video id="video" autobuffer autoplay loop="true" muted playsinline poster="{{ url_for('static', filename='videos/data_stream.mp4') }}">
+                    <!-- WebM/VP8 for Firefox4, Opera, and Chrome / Chromium -->
+                    <source src="{{ url_for('static', filename='videos/data_stream.webm') }}" type='video/webm'>
+                    <!-- MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7 -->
+                    <source src="{{ url_for('static', filename='videos/data_stream.mp4')}}" type='video/mp4'>
+                    <!-- M4V for Apple iOS and Safari -->
+                    <source src="{{ url_for( 'static', filename='videos/data_stream.m4v' ) }}" type='video/mp4'>
+                      Your browser is blocking this video
+                    </video>
+                  </div>
+                </div>
+                <!-- END VIDEO -->
+
+                <!-- begin intro -->
+                
+                <!-- end intro -->
+
+
+
+                <div class="col">
+                  <a href="https://your-domain/software">
+                  <img class="block-image" src="{{ url_for( 'static', filename='images/code0.jpg' ) }}">
+                  </a>
+                </div>
+
+                
+
+{% endblock content %}
