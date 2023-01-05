@@ -1,0 +1,49 @@
+# /etc/nginx/sites-enabled/app-after-ssl
+
+# You shouldn't have to make this file
+# python-certbot-nginx should do it for you while setting up
+# this is how it'll look after ssl, it'll need updating
+
+# Anything with a * past it means it should be edited to your needs
+# For example your-domain  * means the domain name will need to be changed to your domain
+
+server {
+    server_name your-domain.com www.your-domain.com;  *
+
+    location / {
+        include proxy_params;
+        proxy_pass http://0.0.0.0:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_headers_hash_max_size 512;
+        proxy_headers_hash_bucket_size 128; 
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/your-domain.com/fullchain.pem; #  * managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/your-domain.com/privkey.pem; # *   managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+
+# this block re-directs all non-https to https
+server {
+    if ($host = www.your-domain.com) {      # *
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = your-domain.com) {   #  *
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name your-domain.com www.your-domain.com;
+    return 404; # managed by Certbot
+
+
+}
+
