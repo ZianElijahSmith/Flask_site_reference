@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+  
+  <!-- This is a jinja2 layout template, you put the stuff that will be the same on all pages here -->
+  <!-- Such as a header menu, footer, etc. Then you can just focus on body content -->
+  
+  <head>
+    <meta charset="utf-8"/>
+
+    <!-- CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral+SC&family=Spectral:wght@600&display=swap" rel="stylesheet">
+
+    <!-- General Meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> {{ title }} </title>
+
+
+    <!-- Twitter -->
+		<meta name="twitter:card" content="https://twitter.com/website" />
+		<meta name="twitter:site" content="@website" />
+		<meta name="twitter:title" content="" />
+		<meta name="twitter:description" content="" />
+		<meta name="twitter:image" content="" />
+    <!-- og -->
+    <meta property="og:url" content="https://website.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="website" />
+    <meta property="og:description" content="website" />
+    <meta property="og:image" content="https://www.website.com/images/website-logo.png" />
+    <!-- Google -->
+    <meta name="google-site-verification" content="ftKjmoLwH93kyMg4kJyCC7W8lp8y-sTmc1_cLGIT3qs" />
+    <!-- Webpage JSON-LD -->
+    
+    <!-- Make sure to include fontawesome.com icons -->
+    <!-- https://use.fontawesome.com/cd79184f1a.js -->
+    <script type="text/javascript" src="https://use.fontawesome.com/cd79184f1a.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://kit.fontawesome.com/ba1f5eae6c.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+  </head>
+
+    <body>
+      <!-- Begin dropdown-nav -->
+      <!-- remember https://code.jquery.com/jquery-3.4.1.min.js -->
+
+
+     <div class="header">
+        <hr class="sep">
+          <div>
+        <header class="menu-header">
+          <div class="logo"><a href="/home">website</a></div>
+        <nav class="menu-nav">
+          <ul>
+            <li class="menu-list"><a href="tel:13365645418"><i class="fas fa-phone-volume" style="color:white;"></i>555-555-5555</a></li>
+            <!-- don't change ip addresses, this is proper for flask -->
+            <li class="menu-list"><a class="contact-a" href="http://0.0.0.0:5000/">Home</a></li>
+            <li class="menu-list"><a class="contact-a" href="http://0.0.0.0:5000/about">About</a></li>
+            <li class="menu-list"><a class="contact-a" href="http://0.0.0.0:5000/services">Services</a></li>
+          </ul>
+        </nav>
+          <div class="menu-toggle">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </div>
+        </header>
+          </div>
+        <hr class="sep">
+        </div>
+        <!-- End dropdown-nav -->
+        <!--BEGIN TYPING ANIMATION -->
+
+        <p id="typewriter">
+        Welcome!!
+        </p>
+
+        <!-- END TYPING ANIMATION -->
+      
+      <!-- Here is block content, this is what index.html.j2 body content will load -->
+        {% block content %}
+
+      
+      
+        {% endblock content %}
+                <!-- Begin Footer -->
+
+                <!-- Begin contact footer-ol -->
+
+                            <h3 class="tag-text">Get in Touch</h3>
+                            <hr class="half-sep">
+                            <br>
+                            <h3 class="tag-text">Contact</h3>
+                            <i class="heart-icon fa fa-heart" aria-hidden="true"></i>
+                            <br>
+
+                <div class="footer-layout">
+
+                            <div class="bottom-nav">
+                              <a href="tel:13365645418" class="contact-link"><h4 class="contact-h4"><i class="fas fa-phone-volume contact-icon"></i> Call: 252-458-1111</h4></a>
+
+                              <a href="mailto:Support@website.com" class="contact-link"><h4 class="contact-h4"><i class="far fa-envelope contact-icon"></i> E-mail - Support@ZiScoto.com</h4></a>
+
+                              <a href="" class="contact-link"><h4 class="contact-h4"><i class="fas fa-home contact-icon"></i> mailing address: 1111 nowhere road</h4></a>
+
+                          </div>
+                           <!-- End contact footer-ol -->
+                           <br>
+                           <br>
+                           <h4 class="footer-h">Social</h4>
+                           <!-- Begin social footer-ol -->
+
+                          <div class="bottom-nav">
+                            <span><a class="twitter-link" href="https://twitter.com/"><i class="social-icon-t fab fa-twitter social-icon"></i></a></h3>
+                            <span><a class="facebook-link" href="https://facebook.com/"><i class="social-icon-f fab fa-facebook-f social-icon"></i></a></span>
+                            <span><a class="instagram-link" href="https://www.instagram.com/"><i class="social-icon-i fab fa-instagram social-icon"></i></a></span>
+                            <!--<span><a class="linkedin-link" href="https://linkedin.com/"><i class="social-icon-l fa fa-linkedin" aria-hidden="true"></i></a></span>-->
+                            <span><a class="snapchat-link" href="https://www.snapchat.com/add/"><i class="social-icon-s fa fa-snapchat-ghost" aria-hidden="true"></i></a></span>
+
+                        </div>
+                          <!-- End social footer-ol -->
+
+                          <!-- end bottom tabs -->
+                          <br><br>
+                          <div class="bottom-nav">
+                            <a class="link" href="https://website.com/about_us">About Us</a>
+                            <a class="link" href="https://website.com/privacy_policy">Privacy Policy</a>
+                            <a class="link" href="https://website.com/terms_and_conditions">Terms & Conditions</a>
+                          </div>
+
+                          <!-- end bottom tabs -->
+                </div>
+
+
+
+      <div class="grey-footer">
+
+      </div>
+
+            <hr class="sep">
+              <p class="bottom-p">© 2020 website LLC. All rights reserved.</p>
+
+              <!-- end footer -->
+
+  </body>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/index.js' ) }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/typewriter.js' ) }}"></script>
+</html>
