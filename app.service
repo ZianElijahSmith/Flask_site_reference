@@ -1,0 +1,21 @@
+#/etc/systemd/system/app.service
+# Don't forget to edit the lines with a * and remove the *
+[Unit]
+Description=Gunicorn instance to serve myproject
+After=network.target
+
+[Service]
+# Edit this and remove comment and *
+User=user  *
+Group=www-data
+# Edit this and remove comment and *
+WorkingDirectory=/home/user/app  *
+# Edit this and remove comment and *
+Environment="PATH=/home/user/app/app-env/bin"  *  # edit this
+# Edit this and remove comment and *
+ExecStart=/home/user/app/app-env/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 wsgi:app  *
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
