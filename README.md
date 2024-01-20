@@ -98,8 +98,9 @@ sudo ln -s /etc/nginx/sites-enabled/app /etc/nginx/sites-available
 ###############
 ## SSL Setup ##
 ###############
-# Next we need to do ssl
+
 sudo apt install python-certbot-nginx
+<br>
 sudo certbot --nginx -d your_domain -d www.your_domain  *
 
 # Boom, now you have flask, redirect, and ssl
